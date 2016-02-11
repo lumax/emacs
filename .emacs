@@ -1,6 +1,9 @@
 ;; C-h f  : Describe function
 ;; C-h v  : Describe variable
 ;; C-h b  : Describe bindings
+;; C-h c <key (C-x C-c)>  : describe-key-briefly
+;; C-h k <key> : self-insert-command
+;; C-x C-h : show all keybinding beginning with C-x
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
