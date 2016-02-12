@@ -1,0 +1,71 @@
+;;
+;;starten in bash script mit 
+;;emacs -l /opt/xenvlumax/src/emacs/customSettings1 & 
+
+(defun rup-fullscreen ()
+  "vergroessert den Frame auf hardcodierte Werte"
+  (interactive)
+  (set-frame-width (focus-frame) 182); adapt size
+  (set-frame-height (focus-frame) 51); adapt size
+  (setq myfullscreen t)
+  )
+
+(defun myfullscreen-off ()
+  "Sets fullscreen off (based on ???display??? with font ???)"  
+  (interactive)
+  (set-frame-width (selected-frame) 110); adapt size
+  (set-frame-height (selected-frame) 58); adapt size
+  (setq myfullscreen nil)
+  )
+
+(defun myfullscreen-toggle ()
+  "Toggles fullscreen on/off (based on ???Display??? with font ???)"    
+  (interactive)
+  (if (eq myfullscreen 'nil)
+      (myfullscreen-on)
+					;else
+    (myfullscreen-off)
+    )
+  )
+
+(defun rup-split-window ()
+  "split the frame to four windows"  
+  (interactive)
+  (delete-other-windows)
+  (split-window-horizontally)
+  (split-window-vertically)
+  (other-window 2)
+  (split-window-vertically)
+  ;(set-frame-width (selected-frame) 182); adapt size
+  ;(set-frame-height (selected-frame) 51); adapt size
+  )
+
+(rup-split-window)
+
+;;
+;;oben links
+;(find-file "/opt/xenvlumax/src/syslinkcorr/host/main_host.c")
+;(split-window-horizontally)
+;(split-window-vertically)
+;(other-window 1)
+;;unten links
+;(find-file "/opt/xenvlumax/src/syslinkcorr/shared/CorrParamExtension.h")
+;(other-window 1)
+;(split-window-vertically)
+;;oben rechts
+;(find-file "/opt/xenvlumax/src/syslinkcorr/host/DSPCtrl.h")
+;(other-window 1)
+;(find-file "/opt/xenvlumax/src/syslinkcorr/host/DSPCtrl.c")
+
+;;(other-window 1)
+;;(find-file "/opt/xenvlumax/src/syslinkcorr/host/DSPCtrl.c")
+;;(other-window 2)
+;;(find-file "/opt/xenvlumax/src/syslinkcorr/host/main_host.c")
+;;(find-file "/opt/xenvlumax/src/syslinkcorr/host/main_host.c")
+;;(next-window)
+;;(find-file "/opt/xenvlumax/src/syslinkcorr/shared/CorrParamExtension.h")
+;;(find-file "/opt/xenvlumax/src/syslinkcorr/host/DSPCtrl.c")
+;;(find-file "/opt/xenvlumax/src/syslinkcorr/host/DSPCtrl.h")
+
+(defvar myfullscreen '()
+  "non-nil if current frame is in fullscreen mode. See myfullscreen-on, myfullscreen-off, myfullscreen-toggle")
