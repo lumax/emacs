@@ -10,9 +10,23 @@
 
 
 (add-to-list 'load-path "~/.emacs.d")    ; This may not be appeared if you have already added.
+
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
 (ac-config-default)
+
+;;semantic-mode on für den ToolTip
+;;auto-completion selber mit auto-complete
+(semantic-mode)
+
+
+(global-set-key (kbd "<C-tab>") 'semantic-ia-complete-tip)
+(global-set-key (kbd "C-c TAB") 'semantic-analyze-proto-impl-toggle)
+;;  (local-set-key [(control return)] 'semantic-ia-complete-symbol)
+;;  (local-set-key "\C-c TAB" 'semantic-ia-complete-tip)
+;;  (local-set-key "\C-c>" 'semantic-complete-analyze-inline)
+;;  (local-set-key "\C-cp" 'semantic-analyze-proto-impl-toggle))
+
 
 ;; C-h f  : Describe function
 ;; C-h v  : Describe variable
