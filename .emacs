@@ -65,4 +65,14 @@
 
 (setq show-trailing-whitespace t)
 
-
+(defun rup-split-window ()
+  "split the frame to four windows"  
+  (interactive)
+  (delete-other-windows)
+  (split-window-horizontally)
+  (split-window-vertically)
+  (other-window 2)
+  (split-window-vertically)
+  ;(set-frame-width (selected-frame) 182); adapt size
+  ;(set-frame-height (selected-frame) 51); adapt size
+  )
