@@ -7,8 +7,6 @@
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize) ;; You might already have this line
 
-
-
 (add-to-list 'load-path "~/.emacs.d")    ; This may not be appeared if you have already added.
 
 (require 'auto-complete-config)
@@ -76,3 +74,37 @@
   ;(set-frame-width (selected-frame) 182); adapt size
   ;(set-frame-height (selected-frame) 51); adapt size
   )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Rechtschreibpruefung Aspell
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; Rechtschreibpruefung kann unter Emacs in allen Modi verwendet werden.
+; Hier wird fuer die Rechtschreibpruefung das Programm ''Aspell'' verwendet welches bei jeder Distribution
+; mit dabei sein sollte. (ggf muss es nachinstalliert werden) Benoetigt wird i.d.R. ''aspell'' und ''aspell-de''
+; fuer die entsprechende Sprache z.B. ''aspell-en'' usw. Anstelle von Aspell kann auch Ispall verwendet werden 
+; welches bei jeder Distribution mit dabei sein sollte. Ispell ist allerdings etwas aelter, so das Aspell empfohlen wird.
+   (setq ispell-program-name "aspell"
+   flyspell-default-dictionary "de_DE-neu"
+   flyspell-persistent-highlight nil
+   ispell-local-dictionary "de_DE-neu")
+
+; Ispell wird automatisch fuer den Buffer geladen.
+  (autoload 'ispell-buffer "aspell")
+
+; Ispell kann manuell mit der Tasenkombination C-c C-v also STRG-c STRG-v gestartet werden.
+  (global-set-key "\C-c\C-v" 'ispell-buffer)
+
+; Ispell wird im ''Text Modus'' waerend dem eigentlichen schreiben verwendet und muss nicht manuell
+; gestartet werden.
+  (add-hook 'text-mode-hook 'flyspell-mode)
+
+; Aspell kann auch manuell in jedem Mode aufgerufen werden durch die Eingabe von M-x ispell also ALT-x ispell
+
+; M-x flyspell-mode enables Flyspell mode, which highlights all misspelled words.
+
+; P.S. Die Dateien für Aspell befinden sich nach der Installtion im /home/< user >/ Verzeichniss.
+; bei DE: aspell.de.prepl, aspell.de.pws oder bei EN: aspell.de.prepl, aspell.en.pws
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Rechtschreibpruefung Aspell ENDE
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
