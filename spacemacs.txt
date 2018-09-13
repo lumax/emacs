@@ -1,2 +1,4 @@
 helm-ag command zum suchen in Projekten:
 -evtl. muss silversearcher-ag nachinstalliert werden.
+
+magit: Editor nach commit beenden: C-c C-c
