@@ -1,0 +1,9 @@
+#key : for
+#name : for individuell (?=0...;?++)
+#contributor: Bastian Ruppert <Bastian.Ruppert@sewerin.com>
+# --
+
+for($1 = 0; $1 < $2; $1++)
+{
+  $0
+}
